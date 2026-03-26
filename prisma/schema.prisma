@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Spotlight {
+  id          String   @id @default(cuid())
+  type        String   // e.g. "song", "podcast", "bible character"
+  title       String
+  description String
+  image       String?
+  link        String?
+  isPublished Boolean  @default(false)
+  startDate   DateTime?
+  endDate     DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Event {
+  id               String   @id @default(cuid())
+  title            String
+  description      String
+  image            String?
+  eventDate        DateTime
+  time             String?
+  location         String?
+  registrationLink String?
+  isFeatured       Boolean  @default(false)
+  isPublished      Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Book {
+  id           String   @id @default(cuid())
+  title        String
+  author       String
+  description  String
+  coverImage   String?
+  purchaseLink String?
+  isFeatured   Boolean  @default(false)
+  isPublished  Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Podcast {
+  id          String   @id @default(cuid())
+  name        String
+  host        String
+  description String
+  coverImage  String?
+  link        String?
+  isFeatured  Boolean  @default(false)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PageContent {
+  id        String   @id @default(cuid())
+  pageKey   String   @unique // e.g., "home_hero", "about_intro"
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteSetting {
+  id          String   @id @default(cuid())
+  key         String   @unique // e.g., "contact_email", "social_twitter"
+  value       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Music {
+  id          String   @id @default(cuid())
+  title       String
+  artist      String
+  description String?
+  coverImage  String?
+  link        String?
+  isFeatured  Boolean  @default(false)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Character {
+  id          String   @id @default(cuid())
+  name        String
+  reference   String?
+  description String
+  image       String?
+  isFeatured  Boolean  @default(false)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

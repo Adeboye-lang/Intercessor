@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# INTERCESSOR
 
-## Getting Started
+INTERCESSOR is a Next.js App Router project with:
 
-First, run the development server:
+- Public pages for content and church discovery
+- Admin CMS area protected by NextAuth
+- Prisma ORM for database access
+- Contact and Google Maps-backed geocode/places APIs
+
+## Local Development
+
+1. Install dependencies.
+
+```bash
+npm install
+```
+
+2. Copy environment variables.
+
+```bash
+cp .env.example .env.local
+```
+
+3. Set `DATABASE_URL` in `.env.local` to a PostgreSQL connection string.
+
+4. Push Prisma schema to your local database.
+
+```bash
+npm run prisma:push
+```
+
+5. Start development server.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Production Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build automatically runs:
 
-## Learn More
+- `prisma generate`
+- `next build`
 
-To learn more about Next.js, take a look at the following resources:
+## Vercel Deployment Readiness
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is configured for Vercel serverless deployment with a managed PostgreSQL database.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Required Vercel Environment Variables
 
-## Deploy on Vercel
+Set these in both Preview and Production where applicable:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `DATABASE_URL` (required): managed PostgreSQL connection string
+- `NEXTAUTH_SECRET` (required): long random secret
+- `NEXTAUTH_URL` (required in production): app URL, for example `https://intercessor.uk`
+- `SMTP_HOST` (required)
+- `SMTP_PORT` (required)
+- `SMTP_SECURE` (required)
+- `SMTP_USER` (required)
+- `SMTP_PASS` (required)
+- `SMTP_FROM_EMAIL` (required)
+- `CONTACT_EMAIL_TO` (optional): recipient for contact form submissions (defaults to `contact@intercessor.uk`)
+- `GOOGLE_MAPS_SERVER_API_KEY` (required): server-side key for Geocoding and Places APIs
+- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` (required): browser key for Maps JavaScript API only
+- `NEXT_PUBLIC_APP_URL` (recommended): canonical app URL used for sitemap and origin checks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### First Deployment Checklist
+
+1. Provision managed PostgreSQL (Neon, Supabase, Vercel Postgres, or equivalent).
+2. Set all required environment variables in Vercel Project Settings.
+3. Run Prisma migrations against the target database:
+
+```bash
+npm run prisma:migrate:deploy
+```
+
+4. Ensure Google server key has Geocoding API + Places API enabled.
+5. Ensure Google browser key is restricted to your allowed domains and Maps JavaScript API.
+6. Deploy to Preview and validate:
+	- Admin login
+	- Contact form send
+	- Belong geocode + nearby search
+7. Promote to Production after Preview validation.
+
+### Notes
+
+- API routes for auth/contact/geocode/places are pinned to Node runtime (`runtime = "nodejs"`).
+- In-memory rate limiting is suitable for single-instance development only. Use Redis-backed limiting for production-scale traffic.
+
+## Prisma Commands
+
+- Generate client: `npm run prisma:generate`
+- Push schema: `npm run prisma:push`
+- Apply migrations in deployment environments: `npm run prisma:migrate:deploy`
+- Open studio: `npm run prisma:studio`

@@ -1,0 +1,23 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and api routes
+Disallow: /admin/
+Disallow: /api/
+
+# Disallow common exploit attempts
+Disallow: /*.json$
+Disallow: /admin/*
+Disallow: /wp-admin/
+Disallow: /wp-login/
+
+# Specify sitemap
+Sitemap: /sitemap.xml
+
+# Crawl delay for heavy crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
