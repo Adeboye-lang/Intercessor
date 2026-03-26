@@ -18,12 +18,24 @@ function isOriginAllowed(req: NextRequest): boolean {
   const origin = req.headers.get('origin');
   if (!origin) return true;
 
-  try {
-    const allowedOrigin = new URL(getAllowedOrigin(req)).origin;
-    return new URL(origin).origin === allowedOrigin;
-  } catch {
-    return false;
+  const allowedOrigins = [
+    'https://intercessor.uk',
+    'https://www.intercessor.uk',
+    'http://localhost:3000'
+  ];
+
+  if (origin.endsWith('.vercel.app') || allowedOrigins.includes(origin)) {
+    return true;
   }
+
+  try {
+    const envOrigin = process.env.NEXT_PUBLIC_APP_URL?.trim().replace(/['"]/g, '');
+    if (envOrigin && new URL(origin).origin === new URL(envOrigin).origin) {
+      return true;
+    }
+  } catch {}
+
+  return false;
 }
 
 function getMissingSmtpConfig(): string[] {
