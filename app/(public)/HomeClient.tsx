@@ -61,14 +61,14 @@ export default function HomeClient() {
           initial="hidden"
           animate="visible"
         >
-          <motion.h1 variants={fadeInUp} className="text-7xl md:text-[9rem] lg:text-[10.5rem] font-serif text-[#3D532D] leading-[0.9] tracking-tight mb-8 drop-shadow-sm">
+          <motion.h1 variants={fadeInUp} className="text-5xl sm:text-7xl md:text-[9rem] lg:text-[10.5rem] font-serif text-[#3D532D] leading-[0.9] tracking-tight mb-8 drop-shadow-sm mt-8 sm:mt-0">
             A hub for <br/>
             <span className="italic font-light text-[#C5A059] relative inline-block pb-4">
               exploration
             </span>
           </motion.h1>
 
-          <motion.p variants={fadeInUp} className="text-2xl md:text-3xl text-[#3D532D]/70 font-light leading-relaxed max-w-2xl font-serif italic">
+          <motion.p variants={fadeInUp} className="text-lg sm:text-2xl md:text-3xl text-[#3D532D]/70 font-light leading-relaxed max-w-2xl font-serif italic px-4 sm:px-0">
             Intercession is the means of establishing God&apos;s Kingdom on earth.
           </motion.p>
 
@@ -87,7 +87,7 @@ export default function HomeClient() {
             
             <Link 
               href="/resources" 
-              className="px-10 py-5 border border-[#3D532D]/30 text-[#3D532D] text-sm uppercase tracking-[0.2em] font-medium hover:bg-[#3D532D]/10 hover:border-[#3D532D]/60 backdrop-blur-sm transition-all"
+              className="px-10 py-5 border border-[#3D532D]/30 text-[#3D532D] text-sm uppercase tracking-[0.2em] font-medium hover:bg-[#3D532D]/10 hover:border-[#3D532D]/60 backdrop-blur-sm transition-all text-center w-full sm:w-auto"
             >
               Explore Library
             </Link>
@@ -117,7 +117,7 @@ export default function HomeClient() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-6xl font-serif italic font-light leading-relaxed mb-12 drop-shadow-md max-w-5xl mx-auto"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-serif italic font-light leading-relaxed mb-12 drop-shadow-md max-w-5xl mx-auto"
           >
             &quot;I looked for someone among them who would build up the wall and stand before me in the gap on behalf of the land so that I would not have to destroy it...&quot;
           </motion.h2>
@@ -138,20 +138,20 @@ export default function HomeClient() {
           variants={staggerContainer}
           className="container mx-auto max-w-5xl"
         >
-          <motion.div variants={fadeInUp} className="text-left w-full relative bg-white/70 backdrop-blur-md border border-[#3D532D]/10 p-10 md:p-16 shadow-[0_10px_40px_-15px_rgba(61,83,45,0.05)]">
+          <motion.div variants={fadeInUp} className="text-left w-full relative bg-white/70 backdrop-blur-md border border-[#3D532D]/10 p-6 sm:p-10 md:p-16 shadow-[0_10px_40px_-15px_rgba(61,83,45,0.05)]">
             {/* Corner styling */}
             <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#C5A059]/40"></div>
             <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-[#C5A059]/40"></div>
             <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#C5A059]/40"></div>
             <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-[#C5A059]/40"></div>
 
-            <span className="float-left text-[100px] md:text-[140px] text-[#C5A059] font-serif pr-8 pt-4 leading-[0.6] opacity-90 select-none">
+            <span className="float-left text-[80px] sm:text-[100px] md:text-[140px] text-[#C5A059] font-serif pr-4 sm:pr-8 pt-4 leading-[0.6] opacity-90 select-none">
               I
             </span>
-            <p className="text-[#3D532D]/80 font-light leading-[1.9] text-2xl md:text-3xl mb-8 font-serif">
+            <p className="text-[#3D532D]/80 font-light leading-[1.8] sm:leading-[1.9] text-xl sm:text-2xl md:text-3xl mb-8 font-serif">
               ntercessor is a platform for those who want to explore the Christian faith further and learn new ways of understanding God. Our goal is to provide information and resources to support a life dedicated to Christ and help keep the fire burning.
             </p>
-            <p className="text-[#3D532D]/80 font-light leading-[1.9] text-2xl md:text-3xl mb-12 font-serif clear-both md:clear-none">
+            <p className="text-[#3D532D]/80 font-light leading-[1.8] sm:leading-[1.9] text-xl sm:text-2xl md:text-3xl mb-12 font-serif clear-both md:clear-none">
               We are a one-stop shop for exploration, and an intermediary source of prayer independent of denominations and demographics. A pathway to intimacy with Christ may take different forms but the goal of pleasing God is what unites us.
             </p>
             
@@ -172,7 +172,7 @@ export default function HomeClient() {
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="flex flex-col items-center text-center mb-24">
             <span className="text-[#C5A059] mb-4"><Flame size={28} strokeWidth={1} /></span>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-white tracking-tight mb-6 drop-shadow-xl">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white tracking-tight mb-6 drop-shadow-xl text-balance">
               The Pillars of Intercession
             </h2>
             <p className="text-xl text-white/90 font-serif italic max-w-2xl drop-shadow-lg">

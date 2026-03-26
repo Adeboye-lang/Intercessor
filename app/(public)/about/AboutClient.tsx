@@ -71,7 +71,7 @@ export default function AboutClient({
             className="mb-16 text-center w-full flex flex-col items-center border-b border-[#3D532D]/10 pb-16"
           >
             <motion.div variants={fadeIn} className="w-12 h-[1px] bg-[#C5A059] mb-10" />
-            <motion.h3 variants={fadeIn} className="text-5xl md:text-7xl font-serif text-[#3D532D] leading-tight max-w-3xl mx-auto">
+            <motion.h3 variants={fadeIn} className="text-4xl sm:text-5xl md:text-7xl font-serif text-[#3D532D] leading-tight max-w-3xl mx-auto px-4 sm:px-0">
               A Calling from <span className="italic font-light text-[#C5A059]">God</span>
             </motion.h3>
           </motion.div>
@@ -84,7 +84,7 @@ export default function AboutClient({
             className="w-full text-lg md:text-xl text-[#3D532D]/85 leading-[1.8] font-light max-w-3xl mx-auto space-y-10"
           >
             <motion.p variants={fadeIn} className="relative">
-              <span className="float-left text-7xl md:text-8xl text-[#C5A059] font-serif pr-4 pt-2 leading-[0.7] opacity-80 z-0">
+              <span className="float-left text-6xl sm:text-7xl md:text-8xl text-[#C5A059] font-serif pr-3 sm:pr-4 pt-2 leading-[0.7] opacity-80 z-0">
                 O
               </span>
               <span className="relative z-10">
@@ -121,7 +121,7 @@ export default function AboutClient({
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
           <ClassicDivider />
           
-          <motion.h2 variants={slideUp} className="text-5xl md:text-6xl lg:text-7xl font-serif mb-8 leading-[1.1] tracking-tight text-white drop-shadow-2xl shadow-2xl">
+          <motion.h2 variants={slideUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif mb-8 leading-[1.1] tracking-tight text-white drop-shadow-2xl shadow-2xl px-4 sm:px-0">
             Beyond the <span className="italic font-light text-[#C5A059]">Platform</span>
           </motion.h2>
           
@@ -129,10 +129,10 @@ export default function AboutClient({
             Our ultimate mandate: equip you to building an intimate passion for Christ and to go out and intercede for others.
           </motion.p>
           
-          <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-6 mt-4">
+          <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-6 mt-4 w-full sm:w-auto px-4 sm:px-0">
              <Link 
                href="/belong" 
-               className="group relative px-10 py-5 bg-[#C5A059] text-[#3D532D] text-sm uppercase tracking-[0.2em] font-medium overflow-hidden shadow-[0_10px_30px_-10px_rgba(197,160,89,0.4)] transition-all hover:shadow-[0_20px_40px_-10px_rgba(197,160,89,0.6)] hover:-translate-y-1"
+               className="group relative px-6 sm:px-10 py-5 bg-[#C5A059] text-[#3D532D] text-sm uppercase tracking-[0.2em] font-medium overflow-hidden shadow-[0_10px_30px_-10px_rgba(197,160,89,0.4)] transition-all hover:shadow-[0_20px_40px_-10px_rgba(197,160,89,0.6)] hover:-translate-y-1 w-full sm:w-auto text-center"
              >
                <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
                <span className="relative z-10 flex items-center justify-center gap-3">
@@ -142,7 +142,7 @@ export default function AboutClient({
              
              <Link 
                href="/resources" 
-               className="px-10 py-5 border border-white/40 text-white text-sm uppercase tracking-[0.2em] font-medium hover:bg-white/10 hover:border-white/60 transition-all font-sans drop-shadow-md"
+               className="px-6 sm:px-10 py-5 border border-white/40 text-white text-sm uppercase tracking-[0.2em] font-medium hover:bg-white/10 hover:border-white/60 transition-all font-sans drop-shadow-md w-full sm:w-auto text-center"
              >
                Explore Library
              </Link>

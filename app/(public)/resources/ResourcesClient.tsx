@@ -200,7 +200,7 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
             </div>
           </motion.div>
           
-          <motion.h1 variants={fadeIn} className="text-7xl md:text-8xl lg:text-[9rem] font-serif text-[#3D532D] mb-6 leading-[0.9] tracking-tight text-balance decoration-[#C5A059]/20 decoration-2">
+          <motion.h1 variants={fadeIn} className="text-5xl sm:text-6xl md:text-8xl lg:text-[9rem] font-serif text-[#3D532D] mb-6 leading-[0.9] tracking-tight text-balance decoration-[#C5A059]/20 decoration-2 px-4 sm:px-0">
             Find your <br className="hidden md:block"/> 
             <span className="italic font-light text-[#C5A059] relative">
               path.
@@ -265,7 +265,7 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                  <div className="w-12 h-[2px] bg-[#C5A059] mb-6"></div>
                  <div className="flex items-center gap-4 text-[#C5A059]">
                     <BookOpen size={28} strokeWidth={1} />
-                    <h2 className="text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">For the readers</h2>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">For the readers</h2>
                  </div>
               </div>
               
@@ -326,7 +326,7 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                  <div className="w-12 h-[2px] bg-[#C5A059] mb-6"></div>
                  <div className="flex items-center gap-4 text-[#C5A059]">
                     <Headphones size={28} strokeWidth={1} />
-                    <h2 className="text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Audio & Teaching</h2>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Audio & Teaching</h2>
                  </div>
               </div>
               
@@ -391,7 +391,7 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                  <div className="w-12 h-[2px] bg-[#C5A059] mb-6"></div>
                  <div className="flex items-center gap-4 text-[#C5A059]">
                     <Headphones size={28} strokeWidth={1} />
-                    <h2 className="text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Update your playlist</h2>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Update your playlist</h2>
                  </div>
               </div>
               
@@ -443,7 +443,7 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                  <div className="w-12 h-[2px] bg-[#C5A059] mb-6"></div>
                  <div className="flex items-center gap-4 text-[#C5A059]">
                     <BookOpen size={28} strokeWidth={1} />
-                    <h2 className="text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Bible reading</h2>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Bible reading</h2>
                  </div>
                  <p className="text-[#3D532D]/60 italic font-serif mt-4 text-xl">Explore these characters...</p>
               </div>

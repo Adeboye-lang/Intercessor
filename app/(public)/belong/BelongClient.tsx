@@ -402,11 +402,11 @@ export default function BelongClient() {
             </span>
           </motion.div>
           
-          <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl lg:text-[7.5rem] font-serif text-[#3D532D] mb-8 leading-[0.9] tracking-tight">
+          <motion.h1 variants={fadeIn} className="text-4xl sm:text-5xl md:text-7xl lg:text-[7.5rem] font-serif text-[#3D532D] mb-8 leading-[0.9] tracking-tight px-4 sm:px-0">
             Not meant to <br className="hidden md:block"/> <span className="italic font-light text-brand relative">walk alone.</span>
           </motion.h1>
           
-          <motion.p variants={fadeIn} className="text-lg md:text-xl text-[#3D532D]/70 font-light leading-relaxed max-w-2xl mt-4">
+          <motion.p variants={fadeIn} className="text-base sm:text-lg md:text-xl text-[#3D532D]/70 font-light leading-relaxed max-w-2xl mt-4 px-4 sm:px-0">
             Search for a local church near you. Connect physically, grow spiritually, and find a deeply rooted community.
           </motion.p>
         </motion.div>
@@ -429,7 +429,7 @@ export default function BelongClient() {
                 className="w-full pl-14 pr-6 py-4 bg-transparent border-b border-[#3D532D]/20 focus:border-brand text-[#3D532D] text-lg font-serif outline-none transition-all placeholder:text-[#3D532D]/40" 
               />
             </div>
-            <button type="submit" disabled={isFetching} className="py-4 px-10 bg-[#3D532D] hover:bg-black disabled:bg-[#3D532D]/50 text-brand-bg font-medium text-sm tracking-[0.2em] uppercase transition-colors flex items-center justify-center">
+            <button type="submit" disabled={isFetching} className="py-4 px-10 bg-[#3D532D] hover:bg-black disabled:bg-[#3D532D]/50 text-brand-bg font-medium text-sm tracking-[0.2em] uppercase transition-colors flex items-center justify-center w-full md:w-auto">
               {isFetching ? <Loader2 size={16} className="animate-spin" /> : "Search"}
             </button>
           </form>
@@ -480,8 +480,8 @@ export default function BelongClient() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} 
               className="w-full mt-8 flex flex-col items-center"
             >
-              <div className="flex flex-col items-center w-full max-w-7xl mb-8">
-                <h3 className="text-4xl md:text-5xl font-serif text-[#3D532D] mb-2 tracking-tight">Gatherings Near You</h3>
+              <div className="flex flex-col items-center text-center w-full max-w-7xl mb-8 px-4 sm:px-0">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#3D532D] mb-2 tracking-tight">Gatherings Near You</h3>
                 <p className="text-[#3D532D]/60 flex items-center gap-2 font-serif italic">
                   <MapPin size={16} className="text-brand" /> {churches.length} churches found
                 </p>
@@ -492,8 +492,8 @@ export default function BelongClient() {
                 {/* Left Column: Search Results List */}
                 <div className="lg:col-span-2 space-y-4">
                   {/* Radius Selector */}
-                  <div className="bg-white/80 backdrop-blur-md border border-[#3D532D]/10 p-4 rounded-lg flex items-center justify-between">
-                    <div className="flex items-center gap-3">
+                  <div className="bg-white/80 backdrop-blur-md border border-[#3D532D]/10 p-4 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 mx-4 lg:mx-0">
+                    <div className="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start">
                       <MapPin size={16} className="text-brand" />
                       <span className="text-sm font-semibold text-[#3D532D]">Search Radius:</span>
                     </div>
