@@ -38,7 +38,7 @@ export async function updateBook(id: string, formData: FormData) {
     data: {
       title: formData.get("title") as string,
       author: formData.get("author") as string,
-      description: formData.get("description") as string,
+      description: (formData.get("description") as string) || "",
       coverImage: formData.get("coverImage") as string,
       purchaseLink: formData.get("purchaseLink") as string,
       isPublished: formData.get("isPublished") === "true",

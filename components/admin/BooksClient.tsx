@@ -46,8 +46,13 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
 
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this book?")) {
-      await deleteBook(id);
-      setBooks(books.filter((b) => b.id !== id));
+      try {
+        await deleteBook(id);
+        setBooks(books.filter((b) => b.id !== id));
+      } catch (error) {
+        console.error("Failed to delete book:", error);
+        alert("An error occurred while deleting the book.");
+      }
     }
   };
 
@@ -152,14 +157,26 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
               </div>
 
               <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Description</label>
+                <textarea name="description" placeholder="A brief description of this book" defaultValue={editingBook?.description || ""} rows={3} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand resize-y" />
+              </div>
+
+              <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Cover Image URL (Optional)</label>
                 <input name="coverImage" defaultValue={editingBook?.coverImage || ""} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" placeholder="https://..." />
               </div>
 
-              <label className="flex items-center gap-3 p-4 border border-border-subtle rounded-xl cursor-pointer hover:bg-[#F8F9F7] transition-colors">
-                <input type="checkbox" name="isPublished" value="true" defaultChecked={editingBook ? editingBook.isPublished : true} className="w-5 h-5 rounded text-brand focus:ring-brand accent-brand" />
-                <span className="text-sm font-medium text-brand-dark">Publish immediately</span>
-              </label>
+              <div className="grid grid-cols-2 gap-5">
+                <label className="flex items-center gap-3 p-4 border border-border-subtle rounded-xl cursor-pointer hover:bg-[#F8F9F7] transition-colors">
+                  <input type="checkbox" name="isPublished" value="true" defaultChecked={editingBook ? editingBook.isPublished : true} className="w-5 h-5 rounded text-brand focus:ring-brand accent-brand" />
+                  <span className="text-sm font-medium text-brand-dark">Publish immediately</span>
+                </label>
+
+                <label className="flex items-center gap-3 p-4 border border-border-subtle rounded-xl cursor-pointer hover:bg-[#F8F9F7] transition-colors">
+                  <input type="checkbox" name="isFeatured" value="true" defaultChecked={editingBook ? editingBook.isFeatured : false} className="w-5 h-5 rounded text-brand focus:ring-brand accent-brand" />
+                  <span className="text-sm font-medium text-brand-dark">Feature this book</span>
+                </label>
+              </div>
 
               <div className="pt-4 flex justify-end gap-3 border-t border-border-subtle">
                 <button type="button" onClick={handleCloseModal} className="px-6 py-3 rounded-xl text-sm font-semibold text-text-muted hover:bg-gray-100 transition-colors">
