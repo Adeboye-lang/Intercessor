@@ -403,7 +403,7 @@ export default function BelongClient() {
           </motion.div>
           
           <motion.h1 variants={fadeIn} className="text-4xl sm:text-5xl md:text-7xl lg:text-[7.5rem] font-serif text-[#3D532D] mb-8 leading-[0.9] tracking-tight px-4 sm:px-0">
-            Not meant to <br className="hidden md:block"/> <span className="italic font-light text-brand relative">walk alone.</span>
+            Not Meant to <br className="hidden md:block"/> <span className="italic font-light text-brand relative">Walk Alone.</span>
           </motion.h1>
           
           <motion.p variants={fadeIn} className="text-base sm:text-lg md:text-xl text-[#3D532D]/70 font-light leading-relaxed max-w-2xl mt-4 px-4 sm:px-0">

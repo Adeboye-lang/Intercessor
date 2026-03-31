@@ -209,9 +209,9 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
           </motion.div>
           
           <motion.h1 variants={fadeIn} className="text-5xl sm:text-6xl md:text-8xl lg:text-[9rem] font-serif text-[#3D532D] mb-6 leading-[0.9] tracking-tight text-balance decoration-[#C5A059]/20 decoration-2 px-4 sm:px-0">
-            Find your <br className="hidden md:block"/> 
+            Find Your <br className="hidden md:block"/> 
             <span className="italic font-light text-[#C5A059] relative">
-              path.
+              Path.
             </span>
           </motion.h1>
           
