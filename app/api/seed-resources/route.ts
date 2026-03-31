@@ -126,11 +126,11 @@ export async function GET() {
 
     return NextResponse.json({
       success: true,
-      message: \`Successfully seeded \${books.length} books and \${podcasts.length} podcasts!\`
+      message: `Successfully seeded ${books.length} books and ${podcasts.length} podcasts!`
     });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error(error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: error instanceof Error ? error.message : "Unknown error" }, { status: 500 });
   }
 }

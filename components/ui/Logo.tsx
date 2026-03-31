@@ -6,6 +6,7 @@ interface LogoProps {
   onClick?: () => void;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function Logo({ className = "", variant = "dark", onClick }: LogoProps) {
   // We apply the className (which usually contains h-12 or h-7) to a wrapper 
   // so the image scales correctly without overflowing or distorting.

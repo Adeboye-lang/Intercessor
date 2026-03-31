@@ -114,7 +114,7 @@ export default function PagesClient({
           <h3 className="text-lg font-medium text-gray-900 border-b pb-2">Resources Page Spotlights</h3>
           
           <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-4">
-            <h4 className="font-semibold text-gray-800 text-sm">Editor's Selection</h4>
+            <h4 className="font-semibold text-gray-800 text-sm">Editor&apos;s Selection</h4>
             <div className="grid gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>

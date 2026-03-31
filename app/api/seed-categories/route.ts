@@ -84,8 +84,8 @@ export async function GET() {
       success: true,
       message: `Database seeding complete! Updated ${booksUpdated} books and ${podcastsUpdated} podcasts.`
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error(error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: error instanceof Error ? error.message : "Unknown error" }, { status: 500 });
   }
 }
