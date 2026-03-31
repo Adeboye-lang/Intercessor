@@ -65,7 +65,7 @@ export default function MusicClient({ initialMusic }: { initialMusic: Music[] })
         </button>
       </div>
 
-      <div className="bg-white border border-border-subtle rounded-2xl shadow-sm overflow-hidden">
+      <div className="bg-white border border-border-subtle rounded-2xl shadow-sm overflow-x-auto">
         <table className="w-full text-left text-sm whitespace-nowrap">
           <thead className="tracking-widest uppercase text-[10px] bg-[#F8F9F7] text-text-muted">
             <tr>

@@ -65,7 +65,7 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
         </button>
       </div>
 
-      <div className="bg-white border border-border-subtle rounded-2xl shadow-sm overflow-hidden">
+      <div className="bg-white border border-border-subtle rounded-2xl shadow-sm overflow-x-auto">
         <table className="w-full text-left text-sm whitespace-nowrap">
           <thead className="tracking-widest uppercase text-[10px] bg-[#F8F9F7] text-text-muted">
             <tr>
@@ -83,9 +83,9 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
                   <p className="text-text-muted mt-0.5">{podcast.host}</p>
                 </td>
                 <td className="px-6 py-4">
-                  {podcast.description ? (
+                  {podcast.category ? (
                     <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
-                      {podcast.description}
+                      {podcast.category}
                     </span>
                   ) : (
                     <span className="text-xs font-medium text-text-muted">Not set</span>

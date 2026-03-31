@@ -70,7 +70,7 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
         </button>
       </div>
 
-      <div className="bg-white border border-border-subtle rounded-2xl shadow-sm overflow-hidden">
+      <div className="bg-white border border-border-subtle rounded-2xl shadow-sm overflow-x-auto">
         <table className="w-full text-left text-sm whitespace-nowrap">
           <thead className="tracking-widest uppercase text-[10px] bg-[#F8F9F7] text-text-muted">
             <tr>
@@ -151,12 +151,12 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
 
                 <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Purchase Link (Option 1)</label>
-                <input type="url" name="purchaseLink" defaultValue={editingBook?.purchaseLink || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://..." />
+                <input type="url" name="purchaseLink" defaultValue={editingBook?.purchaseLink || ""} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" placeholder="https://..." />
               </div>
               
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Purchase Link (Option 2)</label>
-                <input type="url" name="purchaseLink2" defaultValue={editingBook?.purchaseLink2 || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://... (Optional)" />
+                <input type="url" name="purchaseLink2" defaultValue={editingBook?.purchaseLink2 || ""} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" placeholder="https://... (Optional)" />
               </div>
               </div>
 
