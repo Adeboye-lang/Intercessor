@@ -144,7 +144,7 @@ function getCollectionMessage(
   };
 }
 
-export default function Resources({ initialBooks, initialPodcasts, initialEvents, initialMusic, initialCharacters, booksStatus, podcastsStatus, disclaimer, spotlight, pageContents }: { initialBooks: Book[], initialPodcasts: Podcast[], initialEvents: Event[], initialMusic: Music[], initialCharacters: Character[], booksStatus: ResourceCollectionStatus, podcastsStatus: ResourceCollectionStatus, disclaimer?: string | null, spotlight?: Spotlight | null, pageContents?: Record<string, string> }) {
+export default function Resources({ initialBooks, initialPodcasts, initialMusic, booksStatus, podcastsStatus, disclaimer, spotlight, pageContents }: { initialBooks: Book[], initialPodcasts: Podcast[], initialMusic: Music[], booksStatus: ResourceCollectionStatus, podcastsStatus: ResourceCollectionStatus, disclaimer?: string | null, spotlight?: Spotlight | null, pageContents?: Record<string, string> }) {
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -461,51 +461,6 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
               </AnimatePresence>
             </section>
 
-            {/* Characters Section */}
-            <section>
-              <div className="flex flex-col mb-16 border-b border-[#3D532D]/10 pb-6 relative mt-32">
-                 <div className="w-12 h-[2px] bg-[#C5A059] mb-6"></div>
-                 <div className="flex items-center gap-4 text-[#C5A059]">
-                    <BookOpen size={28} strokeWidth={1} />
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Bible reading</h2>
-                 </div>
-                 <p className="text-[#3D532D]/60 italic font-serif mt-4 text-xl">Explore these characters...</p>
-              </div>
-              
-              <AnimatePresence mode="popLayout">
-                {initialCharacters.length > 0 ? (
-                  <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    {initialCharacters.map((char) => (
-                      <motion.div 
-                        layout
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.6 }}
-                        key={char.id} 
-                        className="group flex flex-col items-start relative p-8 bg-white/80 backdrop-blur-sm border border-[#3D532D]/10 hover:shadow-[0_20px_40px_-20px_rgba(40,46,34,0.15)] transition-all duration-500 hover:-translate-y-1"
-                      >
-                         {/* Vintage Corner Brackets */}
-                        <div className="absolute w-4 h-4 border-t border-l border-[#C5A059] top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <div className="absolute w-4 h-4 border-b border-r border-[#C5A059] bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-                        <h3 className="text-2xl font-serif text-[#3D532D] mb-3 leading-tight pr-8 group-hover:text-[#C5A059] transition-colors">{char.name}</h3>
-                        {char.reference && <p className="text-[#C5A059] text-[10px] font-bold uppercase tracking-[0.3em] mb-6">{char.reference}</p>}
-                        
-                        <p className="text-sm text-[#3D532D]/70 leading-relaxed mb-8 flex-1 font-light">
-                          {char.description}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                ) : (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-20 flex flex-col items-center justify-center text-center border border-dashed border-[#3D532D]/20 bg-white/50">
-                    <BookOpen size={32} className="text-[#3D532D]/20 mb-4" strokeWidth={1}/>
-                    <span className="font-serif italic text-xl text-[#3D532D]/50">Character studies coming soon.</span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </section>
           </div>
 
           {/* Right Column: Sidebar Panels (Span 4) */}
@@ -548,42 +503,6 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
               </motion.a>
             )}
             
-            {/* Themed Spotlight Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="bg-[#3D532D]/90 backdrop-blur-md text-[#FAF9F6] p-10 md:p-12 relative overflow-hidden group shadow-xl border-t-[6px] border-[#C5A059]"
-            >
-               {/* Ornate corner for spotlight */}
-               <div className="absolute w-6 h-6 border-b border-l border-[#C5A059]/30 bottom-4 left-4"></div>
-               <div className="absolute w-6 h-6 border-b border-r border-[#C5A059]/30 bottom-4 right-4"></div>
-
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-12 border-b border-[#FAF9F6]/10 pb-4">
-                  <span className="w-2 h-2 rotate-45 bg-[#C5A059]"></span>
-                  <h2 className="text-[10px] font-bold text-[#C5A059] uppercase tracking-[0.4em]">Editor&apos;s Selection</h2>
-                </div>
-                
-                <div className="mb-14">
-                  <span className="inline-block px-3 py-1 border border-[#C5A059]/30 text-[9px] font-bold uppercase tracking-[0.3em] text-[#C5A059] mb-8 font-sans bg-[#C5A059]/5">
-                    Character Study
-                  </span>
-                  <h3 className="text-4xl md:text-5xl font-serif leading-[1.1] mb-6 text-[#FAF9F6]">
-                    {pageContents?.["editor_selection_title"] || "David: A Man After God's Own Heart"}
-                  </h3>
-                  <p className="text-[#FAF9F6]/60 font-light leading-relaxed text-lg italic font-serif mb-8">
-                    {pageContents?.["editor_selection_subtitle"] || "Exploring themes of deep repentance, overwhelming grace, and enduring faith."}
-                  </p>
-
-                  {pageContents?.["editor_selection_content"] && (
-                    <div className="text-[#FAF9F6]/80 font-light leading-relaxed text-sm whitespace-pre-wrap border-t border-[#C5A059]/20 pt-8 mt-2">
-                      {pageContents["editor_selection_content"]}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </motion.div>
 
             {/* Music Spotlight Card */}
             <motion.div 
@@ -619,52 +538,6 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
               </div>
             </motion.div>
 
-            {/* Premium Info Panel */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="bg-[#FAF9F6]/80 backdrop-blur-sm bg-sacred-grid p-10 border border-[#3D532D]/10 shadow-sm relative group hover:shadow-md transition-shadow"
-            >
-              {/* Card Corner Trim */}
-              <div className="absolute w-3 h-3 border-t border-l border-[#C5A059] top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="absolute w-3 h-3 border-t border-r border-[#C5A059] top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-              <div className="text-[#C5A059] mb-8 border-b border-[#3D532D]/10 pb-8 center">
-                <Calendar size={28} strokeWidth={1} />
-                <h2 className="text-3xl font-serif text-[#3D532D] mt-6">Study Gatherings</h2>
-              </div>
-              
-              <div className="space-y-8">
-                {initialEvents && initialEvents.length > 0 ? (
-                  initialEvents.map((event, i) => (
-                    <div key={i} className="group/event relative border-l-2 border-[#C5A059]/20 hover:border-[#C5A059] pl-6 pb-2 transition-colors duration-300">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#3D532D]/40 block mb-2">
-                        {new Date(event.eventDate).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
-                      </span>
-                      <h3 className="text-xl font-serif text-[#3D532D] group-hover/event:text-[#C5A059] transition-colors mb-3 leading-tight">{event.title}</h3>
-                      {event.registrationLink ? (
-                        <a href={event.registrationLink} target="_blank" rel="noopener noreferrer" className="text-[9px] font-bold tracking-[0.3em] uppercase text-[#3D532D] flex items-center gap-2 border-b border-[#3D532D]/20 w-fit pb-0.5 hover:border-[#C5A059] hover:text-[#C5A059] transition-colors">
-                          Register <ExternalLink size={12} className="group-hover/event:translate-x-0.5 transition-transform" />
-                        </a>
-                      ) : (
-                        <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-[#3D532D]/30">
-                          More info via Calendar
-                        </span>
-                      )}
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-sm text-[#3D532D]/60 italic font-serif">No upcoming gatherings to display.</p>
-                )}
-              </div>
-              
-              <div className="mt-10 pt-8 border-t border-[#3D532D]/10">
-                <Link href="/belong" className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#3D532D] hover:text-[#C5A059] transition-colors flex items-center gap-2 group/link border-b border-[#3D532D]/20 hover:border-[#C5A059] pb-1 w-fit">
-                  Full Calendar <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
 
             {/* Disclaimer Mini Card */}
             <motion.div 
