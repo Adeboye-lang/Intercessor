@@ -20,6 +20,7 @@ export async function createBook(formData: FormData) {
       title: formData.get("title") as string,
       author: formData.get("author") as string,
       description: (formData.get("description") as string) || "",
+      category: formData.get("category") as string,
       coverImage: (formData.get("coverImage") as string) || "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop",
       purchaseLink: formData.get("purchaseLink") as string,
       isPublished: formData.get("isPublished") === "true",
@@ -39,6 +40,7 @@ export async function updateBook(id: string, formData: FormData) {
       title: formData.get("title") as string,
       author: formData.get("author") as string,
       description: (formData.get("description") as string) || "",
+      category: formData.get("category") as string,
       coverImage: formData.get("coverImage") as string,
       purchaseLink: formData.get("purchaseLink") as string,
       isPublished: formData.get("isPublished") === "true",
@@ -72,7 +74,8 @@ export async function createPodcast(formData: FormData) {
     data: {
       name: formData.get("name") as string,
       host: formData.get("host") as string,
-      description: (formData.get("description") as string) || "Spiritual Growth", // using description field as category for now
+      description: formData.get("description") as string,
+      category: formData.get("category") as string,
       coverImage: (formData.get("coverImage") as string) || "https://images.unsplash.com/photo-1593697821252-0c9137d9fc45?q=80&w=800&auto=format&fit=crop",
       link: formData.get("link") as string,
       isPublished: formData.get("isPublished") === "true",
@@ -92,6 +95,7 @@ export async function updatePodcast(id: string, formData: FormData) {
       name: formData.get("name") as string,
       host: formData.get("host") as string,
       description: formData.get("description") as string,
+      category: formData.get("category") as string,
       coverImage: formData.get("coverImage") as string,
       link: formData.get("link") as string,
       isPublished: formData.get("isPublished") === "true",

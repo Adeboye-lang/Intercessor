@@ -50,6 +50,7 @@ model Book {
   title        String
   author       String
   description  String
+  category     String?
   coverImage   String?
   purchaseLink String?
   isFeatured   Boolean  @default(false)
@@ -63,6 +64,7 @@ model Podcast {
   name        String
   host        String
   description String
+  category    String?
   coverImage  String?
   link        String?
   isFeatured  Boolean  @default(false)

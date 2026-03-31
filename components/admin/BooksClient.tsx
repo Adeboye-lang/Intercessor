@@ -157,6 +157,17 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
               </div>
 
               <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Category</label>
+                <select name="category" defaultValue={editingBook?.category || "Theology"} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand">
+                  <option value="Theology">Theology</option>
+                  <option value="Spiritual Growth">Spiritual Growth</option>
+                  <option value="Study">Study</option>
+                  <option value="Devotional">Devotional</option>
+                  <option value="Relationships">Relationships</option>
+                </select>
+              </div>
+
+              <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Description</label>
                 <textarea name="description" placeholder="A brief description of this book" defaultValue={editingBook?.description || ""} rows={3} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand resize-y" />
               </div>

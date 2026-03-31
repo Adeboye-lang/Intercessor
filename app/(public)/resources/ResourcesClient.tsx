@@ -46,6 +46,7 @@ type Book = {
   title: string;
   author: string;
   description: string;
+  category: string | null;
   coverImage: string | null;
   purchaseLink: string | null;
 };
@@ -55,6 +56,7 @@ type Podcast = {
   name: string;
   host: string;
   description: string;
+  category: string | null;
   coverImage: string | null;
   link: string | null;
 };
@@ -144,13 +146,17 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredBooks = initialBooks.filter(book => 
-    book.title.toLowerCase().includes(searchQuery.toLowerCase()) || (book.author || "").toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredBooks = initialBooks.filter(book => {
+    const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) || (book.author || "").toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesFilter = activeFilter === "All" || book.category === activeFilter;
+    return matchesSearch && matchesFilter;
+  });
 
-  const filteredPodcasts = initialPodcasts.filter(podcast => 
-    podcast.name.toLowerCase().includes(searchQuery.toLowerCase()) || (podcast.host || "").toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredPodcasts = initialPodcasts.filter(podcast => {
+    const matchesSearch = podcast.name.toLowerCase().includes(searchQuery.toLowerCase()) || (podcast.host || "").toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesFilter = activeFilter === "All" || podcast.category === activeFilter;
+    return matchesSearch && matchesFilter;
+  });
 
   return (
     <div 
@@ -358,6 +364,11 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                             <div className="flex items-center gap-3 text-sm">
                               <span className="text-[#3D532D]/60 italic font-serif leading-relaxed text-sm">Hosted by {podcast.host}</span>
                             </div>
+                            {podcast.description && (
+                              <p className="text-[#3D532D]/70 text-sm font-light leading-relaxed mt-3 max-w-lg">
+                                {podcast.description}
+                              </p>
+                            )}
                           </div>
                         </div>
 

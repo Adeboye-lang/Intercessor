@@ -157,8 +157,19 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
 
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Category</label>
-                  <input name="description" defaultValue={editingPodcast?.description} placeholder="e.g. Theology, Study..." className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" />
+                  <select name="category" defaultValue={editingPodcast?.category || "Theology"} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand">
+                    <option value="Theology">Theology</option>
+                    <option value="Spiritual Growth">Spiritual Growth</option>
+                    <option value="Study">Study</option>
+                    <option value="Devotional">Devotional</option>
+                    <option value="Relationships">Relationships</option>
+                  </select>
                 </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Description</label>
+                <textarea name="description" placeholder="Podcast description" defaultValue={editingPodcast?.description || ""} rows={3} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand resize-y" />
               </div>
 
               <div className="space-y-1.5">
