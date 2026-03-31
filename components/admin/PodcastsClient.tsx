@@ -155,15 +155,16 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
                   <input required name="host" placeholder="Host name" defaultValue={editingPodcast?.host} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" />
                 </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Category</label>
-                  <select name="category" defaultValue={editingPodcast?.category || "Theology"} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand">
-                    <option value="Theology">Theology</option>
-                    <option value="Spiritual Growth">Spiritual Growth</option>
-                    <option value="Study">Study</option>
-                    <option value="Devotional">Devotional</option>
-                    <option value="Relationships">Relationships</option>
-                  </select>
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Categories (Select one or more)</label>
+                  <div className="flex flex-wrap gap-2">
+                    {["Theology", "Spiritual Growth", "Study", "Devotional", "Relationships"].map(cat => (
+                      <label key={cat} className="flex items-center gap-1.5 bg-white border border-border-subtle px-3 py-1.5 rounded-lg text-sm text-brand-dark hover:bg-[#F8F9F7] cursor-pointer transition-colors">
+                        <input type="checkbox" name="category" value={cat} defaultChecked={editingPodcast?.category?.includes(cat) || (!editingPodcast && cat === "Theology")} className="rounded text-brand focus:ring-brand accent-brand" />
+                        {cat}
+                      </label>
+                    ))}
+                  </div>
                 </div>
               </div>
 
