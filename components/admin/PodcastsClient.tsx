@@ -8,7 +8,6 @@ import { Podcast } from "@prisma/client";
 
 export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: Podcast[] }) {
   const router = useRouter();
-  const [podcasts, setPodcasts] = useState<Podcast[]>(initialPodcasts);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingPodcast, setEditingPodcast] = useState<Podcast | null>(null);
   const [loading, setLoading] = useState(false);
@@ -47,7 +46,7 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this podcast?")) {
       await deletePodcast(id);
-      setPodcasts(podcasts.filter((p) => p.id !== id));
+      router.refresh();
     }
   };
 
@@ -77,7 +76,7 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
             </tr>
           </thead>
           <tbody className="divide-y divide-border-subtle">
-            {podcasts.map((podcast) => (
+            {initialPodcasts.map((podcast) => (
               <tr key={podcast.id} className="hover:bg-brand/5 transition-colors group">
                 <td className="px-6 py-4">
                   <p className="font-serif text-brand-dark text-base">{podcast.name}</p>
@@ -123,7 +122,7 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
                 </td>
               </tr>
             ))}
-            {podcasts.length === 0 && (
+            {initialPodcasts.length === 0 && (
               <tr>
                 <td colSpan={4} className="px-6 py-8 text-center text-text-muted">
                   No podcasts found. Click &quot;Add Podcast&quot; to get started.
@@ -175,11 +174,11 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
 
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">YouTube Link</label>
-                <input type="url" name="link" defaultValue={editingPodcast?.link || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://youtube.com/..." />
+                <input type="url" name="link" defaultValue={editingPodcast?.link || ""} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" placeholder="https://youtube.com/..." />
               </div>
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Spotify Link</label>
-                <input type="url" name="link2" defaultValue={editingPodcast?.link2 || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://open.spotify.com/... (Optional)" />
+                <input type="url" name="link2" defaultValue={editingPodcast?.link2 || ""} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" placeholder="https://open.spotify.com/... (Optional)" />
               </div>
               
               <div className="space-y-1.5">

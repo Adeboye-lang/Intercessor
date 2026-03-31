@@ -8,7 +8,6 @@ import { Music } from "@prisma/client";
 
 export default function MusicClient({ initialMusic }: { initialMusic: Music[] }) {
   const router = useRouter();
-  const [musicList, setMusicList] = useState<Music[]>(initialMusic);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingMusic, setEditingMusic] = useState<Music | null>(null);
   const [loading, setLoading] = useState(false);
@@ -47,7 +46,7 @@ export default function MusicClient({ initialMusic }: { initialMusic: Music[] })
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this track?")) {
       await deleteMusic(id);
-      setMusicList(musicList.filter((m) => m.id !== id));
+      router.refresh();
     }
   };
 
@@ -76,7 +75,7 @@ export default function MusicClient({ initialMusic }: { initialMusic: Music[] })
             </tr>
           </thead>
           <tbody className="divide-y divide-border-subtle">
-            {musicList.map((music) => (
+            {initialMusic.map((music) => (
               <tr key={music.id} className="hover:bg-brand/5 transition-colors group">
                 <td className="px-6 py-4">
                   <p className="font-serif text-brand-dark text-base">{music.title}</p>
@@ -113,7 +112,7 @@ export default function MusicClient({ initialMusic }: { initialMusic: Music[] })
                 </td>
               </tr>
             ))}
-            {musicList.length === 0 && (
+            {initialMusic.length === 0 && (
               <tr>
                 <td colSpan={3} className="px-6 py-8 text-center text-text-muted">
                   No music found. Click &quot;Add Music&quot; to get started.
@@ -149,6 +148,11 @@ export default function MusicClient({ initialMusic }: { initialMusic: Music[] })
                   <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Listen Link (URL)</label>
                   <input name="link" defaultValue={editingMusic?.link || ""} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" placeholder="https://..." />
                 </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Description / Commentary (Optional)</label>
+                <textarea name="description" placeholder="Commentary or description of the track" defaultValue={editingMusic?.description || ""} rows={3} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand resize-y" />
               </div>
 
               <div className="space-y-1.5">

@@ -8,7 +8,6 @@ import { Book } from "@prisma/client";
 
 export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) {
   const router = useRouter();
-  const [books, setBooks] = useState<Book[]>(initialBooks);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingBook, setEditingBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(false);
@@ -48,7 +47,7 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
     if (confirm("Are you sure you want to delete this book?")) {
       try {
         await deleteBook(id);
-        setBooks(books.filter((b) => b.id !== id));
+        router.refresh();
       } catch (error) {
         console.error("Failed to delete book:", error);
         alert("An error occurred while deleting the book.");
@@ -81,7 +80,7 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
             </tr>
           </thead>
           <tbody className="divide-y divide-border-subtle">
-            {books.map((book) => (
+            {initialBooks.map((book) => (
               <tr key={book.id} className="hover:bg-brand/5 transition-colors group">
                 <td className="px-6 py-4">
                   <p className="font-serif text-brand-dark text-base">{book.title}</p>
@@ -118,7 +117,7 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
                 </td>
               </tr>
             ))}
-            {books.length === 0 && (
+            {initialBooks.length === 0 && (
               <tr>
                 <td colSpan={3} className="px-6 py-8 text-center text-text-muted">
                   No books found. Click &quot;Add Book&quot; to get started.
