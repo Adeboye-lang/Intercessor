@@ -14,6 +14,7 @@ export async function GET() {
         author: "David Wilkerson",
         description: "",
         category: "Theology",
+        purchaseLink: "https://www.amazon.co.uk/Hallowed-Be-Thy-Names-Essential/dp/1905044305",
         isPublished: true,
       },
       {
@@ -21,6 +22,7 @@ export async function GET() {
         author: "Myles Munroe",
         description: "",
         category: "Theology",
+        purchaseLink: "https://www.amazon.co.uk/Purpose-Power-Holy-Spirit-Government/dp/1641231351",
         isPublished: true,
       },
       {
@@ -28,6 +30,7 @@ export async function GET() {
         author: "David Wilkerson",
         description: "",
         category: "Spiritual Growth",
+        purchaseLink: "https://www.amazon.co.uk/Hungry-More-Jesus-Intimacy-Christ/dp/1905044313",
         isPublished: true,
       },
       {
@@ -35,6 +38,7 @@ export async function GET() {
         author: "John White",
         description: "",
         category: "Spiritual Growth",
+        purchaseLink: "https://www.amazon.co.uk/Fight-John-White/dp/0877847770",
         isPublished: true,
       },
       {
@@ -42,6 +46,7 @@ export async function GET() {
         author: "Dane Ortlund",
         description: "",
         category: "Spiritual Growth",
+        purchaseLink: "https://www.amazon.co.uk/Gentle-Lowly-Christ-Sinners-Sufferers/dp/1433566133",
         isPublished: true,
       },
       {
@@ -49,6 +54,7 @@ export async function GET() {
         author: "Benny Hinn",
         description: "",
         category: "Devotional",
+        purchaseLink: "https://www.amazon.co.uk/Good-Morning-Holy-Spirit-Benny/dp/0785261265",
         isPublished: true,
       },
       {
@@ -56,6 +62,7 @@ export async function GET() {
         author: "Deanna Lorea",
         description: "",
         category: "Devotional",
+        purchaseLink: "https://www.amazon.co.uk/UNRAVELED-letter-those-finding-Undoing/dp/1662870779",
         isPublished: true,
       },
       {
@@ -63,6 +70,7 @@ export async function GET() {
         author: "Lysa TerKeurst",
         description: "",
         category: "Relationships",
+        purchaseLink: "https://www.amazon.co.uk/Its-Not-Supposed-This-Disappointments/dp/0718039858",
         isPublished: true,
       }
     ];
@@ -76,6 +84,7 @@ export async function GET() {
         host: "The Way UK",
         description: "A podcast focused on understanding God more deeply through Scripture and teaching, helping listeners build a solid foundation in truth while growing in their personal walk with Him.",
         category: "Theology",
+        link: "https://www.youtube.com/@thewayuk_",
         isPublished: true,
       },
       {
@@ -83,6 +92,7 @@ export async function GET() {
         host: "Stephanie Ike",
         description: "A teaching-driven podcast that unpacks spiritual truths and identity in Christ, helping listeners grow in understanding, purpose, and spiritual authority.",
         category: "Theology",
+        link: "https://www.youtube.com/@StephanieIkeOkafor",
         isPublished: true,
       },
       {
@@ -90,6 +100,7 @@ export async function GET() {
         host: "The Perry's",
         description: "A Christ-centred conversation on faith, marriage, and everyday life. This podcast explores what it means to follow Jesus practically, especially within relationships and family.",
         category: "Spiritual Growth",
+        link: "https://www.youtube.com/@WithThePerrys",
         isPublished: true,
       },
       {
@@ -97,6 +108,7 @@ export async function GET() {
         host: "Jerry Flowers",
         description: "Real and honest discussions about relationships, healing, and personal growth through a Christian lens. It meets people in life’s complexities while pointing them toward God’s wisdom.",
         category: "Spiritual Growth, Relationships",
+        link: "https://www.youtube.com/@officialjerryflowersjr",
         isPublished: true,
       },
       {
@@ -104,6 +116,7 @@ export async function GET() {
         host: "Megan Ashley",
         description: "A reflective and thoughtful podcast about wholeness, healing, and identity in God, encouraging listeners to pursue a deeper, more authentic relationship with Him.",
         category: "Spiritual Growth",
+        link: "https://www.youtube.com/@Immeganashley",
         isPublished: true,
       },
       {
@@ -111,6 +124,7 @@ export async function GET() {
         host: "Girls Gone Bible",
         description: "A relatable and engaging podcast where faith meets real life, creating a space for honest conversations about God, identity, and navigating life as a young believer.",
         category: "Devotional",
+        link: "https://www.youtube.com/@GirlsGoneBible",
         isPublished: true,
       },
       {
@@ -118,6 +132,7 @@ export async function GET() {
         host: "Saved Not Soft",
         description: "Bold, honest, and unfiltered conversations about living out your faith. This podcast challenges cultural norms while encouraging a deeper, uncompromising walk with Christ.",
         category: "Devotional",
+        link: "https://www.youtube.com/@savednotsoft",
         isPublished: true,
       }
     ];
