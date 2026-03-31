@@ -110,6 +110,46 @@ export default function PagesClient({
           </div>
         </div>
 
+        <div className="space-y-4">
+          <h3 className="text-lg font-medium text-gray-900 border-b pb-2">Resources Page Spotlights</h3>
+          
+          <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-4">
+            <h4 className="font-semibold text-gray-800 text-sm">Editor's Selection</h4>
+            <div className="grid gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                <input type="text" name="editor_selection_title" defaultValue={pageContents["editor_selection_title"] || ""} className="w-full rounded-lg border-gray-300 border p-2.5 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Subtitle</label>
+                <input type="text" name="editor_selection_subtitle" defaultValue={pageContents["editor_selection_subtitle"] || ""} className="w-full rounded-lg border-gray-300 border p-2.5 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Explanation & Bible Verses</label>
+                <textarea name="editor_selection_content" defaultValue={pageContents["editor_selection_content"] || ""} rows={3} className="w-full rounded-lg border-gray-300 border p-2.5 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition" />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-4">
+            <h4 className="font-semibold text-gray-800 text-sm">Music Spotlight</h4>
+            <div className="grid gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                <input type="text" name="music_spotlight_title" defaultValue={pageContents["music_spotlight_title"] || ""} className="w-full rounded-lg border-gray-300 border p-2.5 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Artist / Subtitle</label>
+                <input type="text" name="music_spotlight_subtitle" defaultValue={pageContents["music_spotlight_subtitle"] || ""} className="w-full rounded-lg border-gray-300 border p-2.5 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Explanation / Context</label>
+                <textarea name="music_spotlight_content" defaultValue={pageContents["music_spotlight_content"] || ""} rows={3} className="w-full rounded-lg border-gray-300 border p-2.5 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition" />
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="pt-4 flex items-center justify-between border-t border-gray-100">
           {success && (
             <span className="text-sm text-green-600 font-medium">

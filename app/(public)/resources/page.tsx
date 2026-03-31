@@ -36,11 +36,29 @@ export default async function ResourcesPage() {
     }
   }
 
+  let spotlightContent: Array<{ pageKey: string; content: string }> = [];
+  try {
+    spotlightContent = await prisma.pageContent.findMany({
+      where: {
+        pageKey: { in: [
+          "editor_selection_title", "editor_selection_subtitle", "editor_selection_content",
+          "music_spotlight_title", "music_spotlight_subtitle", "music_spotlight_content"
+        ]}
+      }
+    });
+  } catch(error) {}
+
+  const pageContents = spotlightContent.reduce((acc, curr) => {
+    acc[curr.pageKey] = curr.content;
+    return acc;
+  }, {} as Record<string, string>);
+
   const disclaimerData = await getDisclaimer(FOOTER_DISCLAIMER_KEY);
   const disclaimer = disclaimerData?.value || null;
 
   return <ResourcesClient 
     initialBooks={books} 
+    pageContents={pageContents} 
     initialPodcasts={podcasts} 
     initialMusic={music}
     initialCharacters={characters}

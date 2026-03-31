@@ -142,7 +142,7 @@ function getCollectionMessage(
   };
 }
 
-export default function Resources({ initialBooks, initialPodcasts, initialEvents, initialMusic, initialCharacters, booksStatus, podcastsStatus, disclaimer, spotlight }: { initialBooks: Book[], initialPodcasts: Podcast[], initialEvents: Event[], initialMusic: Music[], initialCharacters: Character[], booksStatus: ResourceCollectionStatus, podcastsStatus: ResourceCollectionStatus, disclaimer?: string | null, spotlight?: Spotlight | null }) {
+export default function Resources({ initialBooks, initialPodcasts, initialEvents, initialMusic, initialCharacters, booksStatus, podcastsStatus, disclaimer, spotlight, pageContents }: { initialBooks: Book[], initialPodcasts: Podcast[], initialEvents: Event[], initialMusic: Music[], initialCharacters: Character[], booksStatus: ResourceCollectionStatus, podcastsStatus: ResourceCollectionStatus, disclaimer?: string | null, spotlight?: Spotlight | null, pageContents?: Record<string, string> }) {
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -557,17 +557,52 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                     Character Study
                   </span>
                   <h3 className="text-4xl md:text-5xl font-serif leading-[1.1] mb-6 text-[#FAF9F6]">
-                    David: A Man After God&apos;s Own Heart
+                    {pageContents?.["editor_selection_title"] || "David: A Man After God's Own Heart"}
                   </h3>
-                  <p className="text-[#FAF9F6]/60 font-light leading-relaxed text-lg italic font-serif">
-                    Exploring themes of deep repentance, overwhelming grace, and enduring faith.
+                  <p className="text-[#FAF9F6]/60 font-light leading-relaxed text-lg italic font-serif mb-8">
+                    {pageContents?.["editor_selection_subtitle"] || "Exploring themes of deep repentance, overwhelming grace, and enduring faith."}
                   </p>
+
+                  {pageContents?.["editor_selection_content"] && (
+                    <div className="text-[#FAF9F6]/80 font-light leading-relaxed text-sm whitespace-pre-wrap border-t border-[#C5A059]/20 pt-8 mt-2">
+                      {pageContents["editor_selection_content"]}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Music Spotlight Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55, duration: 0.8 }}
+              className="bg-[#FAF9F6] p-10 md:p-12 relative overflow-hidden group shadow-xl border border-[#3D532D]/10"
+            >
+              {/* Ornate corner for spotlight */}
+              <div className="absolute w-4 h-4 border-t border-l border-[#C5A059]/40 top-4 left-4"></div>
+              <div className="absolute w-4 h-4 border-b border-r border-[#C5A059]/40 bottom-4 right-4"></div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-10 border-b border-[#3D532D]/10 pb-4">
+                  <span className="w-2 h-2 rotate-45 bg-[#C5A059]"></span>
+                  <h2 className="text-[10px] font-bold text-[#C5A059] uppercase tracking-[0.4em]">Music Spotlight</h2>
                 </div>
                 
-                <button className="text-[#FAF9F6] uppercase tracking-[0.3em] text-[10px] font-bold flex items-center gap-2 group/btn border-b border-[#C5A059] pb-2 hover:text-[#C5A059] transition-colors w-fit">
-                  Read Study
-                  <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                </button>
+                <div className="mb-8">
+                  <h3 className="text-3xl md:text-4xl font-serif leading-[1.1] mb-4 text-[#3D532D]">
+                    {pageContents?.["music_spotlight_title"] || "Oceans (Where Feet May Fail)"}
+                  </h3>
+                  <p className="text-[#C5A059] font-bold tracking-[0.2em] uppercase text-xs mb-8">
+                    {pageContents?.["music_spotlight_subtitle"] || "Hillsong UNITED"}
+                  </p>
+                  
+                  {pageContents?.["music_spotlight_content"] && (
+                    <div className="text-[#3D532D]/70 font-light leading-relaxed text-sm whitespace-pre-wrap">
+                      {pageContents["music_spotlight_content"]}
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
 

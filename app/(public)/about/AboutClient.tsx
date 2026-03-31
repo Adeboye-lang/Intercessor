@@ -88,20 +88,20 @@ export default function AboutClient({
                 O
               </span>
               <span className="relative z-10">
-                ur generation have become a part of a revival, there is a surge of interest in a higher power but the truth only lies in one God. The misconception of this revival as religious psychosis or a temporary trend has misguided us into believing it is more noble to fit in with the crowd than to step out to a calling from God.
+                ur generation has become part of a revival. There is a surge of interest in a higher power, but the truth only lies in God. A misconception of this revival is that it is religious psychosis or a temporary trend. This has misled us into believing it is more noble to fit in with the crowd than to step out in response to a calling from God.
               </span>
             </motion.p>
             
             <motion.p variants={fadeIn}>
-              To walk with Christ is to standout, to be a light in a world of darkness experiencing true intimacy with him, but we cannot achieve this without first knowing him. If you are reading this, you stumbled here for a reason - whether known to you or not. This platform is about education, pace and intimacy. With so much available at our fingertips and in an instance, we must forge our secret place with an understanding of patience and depth.
+              To walk with Christ is to stand out, to be a light in a world of darkness. In experiencing true intimacy with Him, we cannot achieve this without first knowing Him. If you are reading this, you may have stumbled here for a reason, whether you know it or not. This platform is about education, peace, and intimacy. With so much available at our fingertips in an instant, we must forge our secret place with an understanding of patience and depth.
             </motion.p>
 
             <motion.p variants={fadeIn}>
-              Our aim is to be a one-stop shop for your knowledge, a safe hub for exploration and to do so only with the backing of the holy spirit. Independent from any church, religious body or denomination - we are simply fuelled by the blood of Christ.
+              Our aim is to be a one-stop hub for your growth, a safe space for exploration, and to do so being led by the Holy Spirit. Independent from any church, religious body, or denomination, we are simply fuelled by the blood of Christ.
             </motion.p>
 
             <motion.p variants={fadeIn}>
-              If this is the beginning of your journey - welcome, explore, be patient with yourself find out more and God will do the rest. If you have been on this walk before, welcome back. Hopefully this stepping stone will give you the information you didn’t know you needed, but most of all, be kind to yourself. God is love and we will only act in that capacity.
+              If this is the beginning of your journey, welcome. Explore, be patient with yourself, and allow God to do the rest. If you have been on this walk before, welcome back. Hopefully, this stepping stone will give you the understanding you didn’t know you needed. Most of all, be kind to yourself. God is love, and that is the posture we commit to.
             </motion.p>
           </motion.div>
         </div>
