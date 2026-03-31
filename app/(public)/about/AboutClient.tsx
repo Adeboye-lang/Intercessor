@@ -126,7 +126,7 @@ export default function AboutClient({
           </motion.h2>
           
           <motion.p variants={fadeIn} className="text-xl md:text-2xl text-white leading-relaxed font-light mb-14 max-w-2xl font-serif italic drop-shadow-xl shadow-lg">
-            Our ultimate mandate: equip you to building an intimate passion for Christ and to go out and intercede for others.
+            Our ultimate mandate: equip you to build an intimate passion for Christ and to go out and intercede for others.
           </motion.p>
           
           <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-6 mt-4 w-full sm:w-auto px-4 sm:px-0">

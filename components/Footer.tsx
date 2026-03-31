@@ -75,20 +75,21 @@ export default function Footer({
           <div className="hidden lg:block lg:col-span-2"></div>
 
           {/* Right Column: Contact Information */}
-          <div className="lg:col-span-4 flex flex-col items-start lg:items-end w-full pt-10 lg:pt-0">
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#C5A059] mb-8 border-b border-[#3D532D]/10 pb-4 pr-12 lg:pr-0 lg:pl-12 w-fit text-left lg:text-right ml-0 lg:ml-auto">
+          <div className="lg:col-span-4 flex flex-col items-start lg:items-end w-full pt-6 lg:pt-0">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#C5A059] mb-6 border-b border-[#3D532D]/10 pb-2 pr-12 lg:pr-0 lg:pl-12 w-fit text-left lg:text-right ml-0 lg:ml-auto">
               Contact
             </h3>
             
             <div className="w-full">
-              <a href={`mailto:${globalData?.contact_email || "contact@intercessor.uk"}`} className="group relative flex flex-col gap-4 text-[#3D532D]/70 bg-white/80 backdrop-blur-sm p-6 border border-[#3D532D]/10 shadow-[6px_6px_0_0_#C5A059] hover:shadow-[8px_8px_0_0_#C5A059] hover:-translate-y-1 transition-all duration-300 ml-0 lg:ml-auto max-w-sm">
-                <div className="flex items-center gap-4">
+              <a href={`mailto:${globalData?.contact_email || "contact@intercessor.uk"}`} className="group relative flex flex-col gap-2 text-[#3D532D]/70 bg-white/80 backdrop-blur-sm p-4 border border-[#3D532D]/10 shadow-[6px_6px_0_0_#C5A059] hover:shadow-[8px_8px_0_0_#C5A059] hover:-translate-y-1 transition-all duration-300 ml-0 lg:ml-auto max-w-xs mt-6">
+                <div className="flex items-center gap-3">
                   <div className="bg-[#FAF9F6] p-3 border border-[#3D532D]/10 group-hover:bg-[#C5A059] group-hover:text-white transition-colors rounded-full text-[#3D532D]">
                     <Mail size={16} strokeWidth={1.5} />
                   </div>
+                  <h3 className="text-[#3D532D] font-bold text-[10px] uppercase tracking-[0.2em] mb-0 hidden sm:block">Email</h3>
                 </div>
-                <div className="border-b border-[#3D532D]/10 pb-4 w-full"></div>
-                <span className="font-serif italic text-lg text-[#3D532D] group-hover:text-[#C5A059] transition-colors break-all mt-2">{globalData?.contact_email || "contact@intercessor.uk"}</span>
+                <div className="border-b border-[#3D532D]/10 pb-2 w-full"></div>
+                <span className="font-serif italic text-base text-[#3D532D] group-hover:text-[#C5A059] transition-colors break-all mt-1">{globalData?.contact_email || "contact@intercessor.uk"}</span>
               </a>
             </div>
           </div>
@@ -110,7 +111,7 @@ export default function Footer({
           
           <div className="flex flex-col items-center gap-4 w-full border-t border-[#3D532D]/5 pt-8">
             <p>
-              &copy; {currentYear} INTERCESSOR. ALL RIGHTS SECURED.
+              &copy; {currentYear} INTERCESSOR. ALL RIGHTS RESERVED.
             </p>
             <p className="text-[#3D532D]/45 max-w-3xl mx-auto text-[9px] md:text-[10px] tracking-[0.12em] leading-[2] font-normal font-serif">
               {resolvedFooterDisclaimer}

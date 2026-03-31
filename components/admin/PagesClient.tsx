@@ -148,6 +148,16 @@ export default function PagesClient({
               </div>
             </div>
           </div>
+
+          <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-4">
+            <h4 className="font-semibold text-gray-800 text-sm">Playlist Commentary</h4>
+            <div className="grid gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Commentary / Context</label>
+                <textarea name="playlist_commentary" defaultValue={pageContents["playlist_commentary"] || ""} rows={4} placeholder="A short description or commentary for the music playlist section..." className="w-full rounded-lg border-gray-300 border p-2.5 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition" />
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="pt-4 flex items-center justify-between border-t border-gray-100">

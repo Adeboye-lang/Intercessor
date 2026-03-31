@@ -173,8 +173,12 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Video/Audio Link (YouTube URL)</label>
-                <input name="link" defaultValue={editingPodcast?.link || ""} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" placeholder="https://youtube.com/..." />
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Video/Audio Link (Option 1)</label>
+                <input type="url" name="link" defaultValue={editingPodcast?.link || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://..." />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Video/Audio Link (Option 2)</label>
+                <input type="url" name="link2" defaultValue={editingPodcast?.link2 || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://... (Optional)" />
               </div>
               
               <div className="space-y-1.5">

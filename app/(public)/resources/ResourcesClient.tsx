@@ -49,6 +49,7 @@ type Book = {
   category: string | null;
   coverImage: string | null;
   purchaseLink: string | null;
+  purchaseLink2: string | null;
 };
 
 type Podcast = {
@@ -59,6 +60,7 @@ type Podcast = {
   category: string | null;
   coverImage: string | null;
   link: string | null;
+  link2: string | null;
 };
 
 export type ResourceCollectionStatus =
@@ -340,10 +342,7 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                 {filteredPodcasts.length > 0 ? (
                   <motion.div layout className="space-y-6">
                     {filteredPodcasts.map((podcast) => (
-                      <motion.a 
-                        href={podcast.link ? podcast.link : undefined}
-                        target={podcast.link ? "_blank" : undefined}
-                        rel={podcast.link ? "noopener noreferrer" : undefined}
+                      <motion.div 
                         layout
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -356,8 +355,29 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                         <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#C5A059] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
 
                         <div className="flex items-center gap-6 z-10">
-                          <div className="w-14 h-14 rounded-full border border-[#3D532D]/20 flex items-center justify-center group-hover:bg-[#3D532D] group-hover:border-[#3D532D] transition-colors duration-500 shrink-0 bg-[#FAF9F6] bg-sacred-grid">
-                             <Play fill="currentColor" className="text-[#C5A059] group-hover:text-[#FAF9F6] ml-1 transition-colors duration-300" size={18} />
+                          <div className="flex gap-3">
+                              {podcast.link && (
+                                <a 
+                                  href={podcast.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#C5A059]/30 text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-colors group-hover:scale-110 duration-500 shrink-0"
+                                  title={podcast.link2 ? "Option 1" : "Listen"}
+                                >
+                                  <Play size={16} className="ml-1" fill="currentColor" />
+                                </a>
+                              )}
+                              {podcast.link2 && (
+                                <a 
+                                  href={podcast.link2}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#C5A059]/30 text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-colors group-hover:scale-110 duration-500 shrink-0"
+                                  title="Option 2"
+                                >
+                                  <Play size={16} className="ml-1" fill="currentColor" />
+                                </a>
+                              )}
                           </div>
                           <div>
                             <h3 className="text-xl md:text-2xl font-serif text-[#3D532D] group-hover:text-[#C5A059] transition-colors mb-2">{podcast.name}</h3>
@@ -371,19 +391,7 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                             )}
                           </div>
                         </div>
-
-                        <div className="w-full md:w-auto flex justify-end items-center gap-6 pt-4 md:pt-0 border-t border-[#3D532D]/5 md:border-none z-10">
-                          {'link' in podcast && podcast.link ? (
-                            <div className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#3D532D] flex items-center gap-2 group-hover:text-[#C5A059] transition-colors border-b border-[#3D532D]/20 pb-1 group-hover:border-[#C5A059]">
-                              Listen <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                            </div>
-                          ) : (
-                            <div className="text-[#3D532D]/30 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-transparent pb-1">
-                              Coming Soon
-                            </div>
-                          )}
-                        </div>
-                      </motion.a>
+                      </motion.div>
                     ))}
                   </motion.div>
                 ) : (
@@ -404,6 +412,11 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                     <Headphones size={28} strokeWidth={1} />
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Update your playlist</h2>
                  </div>
+                 {pageContents?.["playlist_commentary"] && (
+                    <div className="mt-8 text-[#3D532D]/80 font-serif italic leading-relaxed text-xl max-w-4xl whitespace-pre-wrap border-l-2 border-[#C5A059] pl-6 py-2">
+                      {pageContents["playlist_commentary"]}
+                    </div>
+                 )}
               </div>
               
               <AnimatePresence mode="popLayout">

@@ -42,7 +42,8 @@ export default async function ResourcesPage() {
       where: {
         pageKey: { in: [
           "editor_selection_title", "editor_selection_subtitle", "editor_selection_content",
-          "music_spotlight_title", "music_spotlight_subtitle", "music_spotlight_content"
+          "music_spotlight_title", "music_spotlight_subtitle", "music_spotlight_content",
+          "playlist_commentary"
         ]}
       }
     });

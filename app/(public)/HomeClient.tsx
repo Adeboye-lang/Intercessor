@@ -61,10 +61,10 @@ export default function HomeClient() {
           initial="hidden"
           animate="visible"
         >
-          <motion.h1 variants={fadeInUp} className="text-5xl sm:text-7xl md:text-[9rem] lg:text-[10.5rem] font-serif text-[#3D532D] leading-[0.9] tracking-tight mb-8 drop-shadow-sm mt-8 sm:mt-0">
-            A hub for <br/>
+          <motion.h1 variants={fadeInUp} className="text-5xl sm:text-7xl md:text-[8rem] lg:text-[9.5rem] font-serif text-[#3D532D] leading-[0.9] tracking-tight mb-8 drop-shadow-sm mt-8 sm:mt-0">
+            A platform to <br/>
             <span className="italic font-light text-[#C5A059] relative inline-block pb-4">
-              exploration
+              explore your faith
             </span>
           </motion.h1>
 

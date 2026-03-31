@@ -151,9 +151,14 @@ export default function BooksClient({ initialBooks }: { initialBooks: Book[] }) 
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Purchase Link (URL)</label>
-                  <input name="purchaseLink" defaultValue={editingBook?.purchaseLink || ""} className="w-full px-4 py-3 rounded-xl border border-border-subtle bg-white focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand" placeholder="https://..." />
-                </div>
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Purchase Link (Option 1)</label>
+                <input type="url" name="purchaseLink" defaultValue={editingBook?.purchaseLink || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://..." />
+              </div>
+              
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Purchase Link (Option 2)</label>
+                <input type="url" name="purchaseLink2" defaultValue={editingBook?.purchaseLink2 || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://... (Optional)" />
+              </div>
               </div>
 
               <div className="space-y-1.5">
