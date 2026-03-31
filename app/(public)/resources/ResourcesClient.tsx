@@ -361,10 +361,10 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                                   href={podcast.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#C5A059]/30 text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-colors group-hover:scale-110 duration-500 shrink-0"
-                                  title={podcast.link2 ? "Option 1" : "Listen"}
+                                  className="inline-flex items-center justify-center px-5 h-11 rounded-full border border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-all duration-300 gap-2 shrink-0 font-serif text-sm tracking-wide"
                                 >
-                                  <Play size={16} className="ml-1" fill="currentColor" />
+                                  <Play size={14} fill="currentColor" />
+                                  <span>YouTube</span>
                                 </a>
                               )}
                               {podcast.link2 && (
@@ -372,10 +372,10 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
                                   href={podcast.link2}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#C5A059]/30 text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition-colors group-hover:scale-110 duration-500 shrink-0"
-                                  title="Option 2"
+                                  className="inline-flex items-center justify-center px-5 h-11 rounded-full border border-[#3D532D]/40 text-[#3D532D] hover:bg-[#3D532D] hover:text-white transition-all duration-300 gap-2 shrink-0 font-serif text-sm tracking-wide"
                                 >
-                                  <Play size={16} className="ml-1" fill="currentColor" />
+                                  <Headphones size={16} />
+                                  <span>Spotify</span>
                                 </a>
                               )}
                           </div>

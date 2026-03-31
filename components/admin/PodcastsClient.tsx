@@ -174,12 +174,12 @@ export default function PodcastsClient({ initialPodcasts }: { initialPodcasts: P
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Video/Audio Link (Option 1)</label>
-                <input type="url" name="link" defaultValue={editingPodcast?.link || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://..." />
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">YouTube Link</label>
+                <input type="url" name="link" defaultValue={editingPodcast?.link || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://youtube.com/..." />
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Video/Audio Link (Option 2)</label>
-                <input type="url" name="link2" defaultValue={editingPodcast?.link2 || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://... (Optional)" />
+                <label className="text-xs font-semibold text-text-muted uppercase tracking-wider block ml-1">Spotify Link</label>
+                <input type="url" name="link2" defaultValue={editingPodcast?.link2 || ""} className="w-full bg-surface border border-white/5 rounded-xl px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all" placeholder="https://open.spotify.com/... (Optional)" />
               </div>
               
               <div className="space-y-1.5">
