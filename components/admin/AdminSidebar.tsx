@@ -27,7 +27,7 @@ export default function AdminSidebar() {
       <div className="flex-1 overflow-y-auto">
         <div className="p-8 pb-4">
           <Link href="/" className="flex flex-col items-start gap-2 group">
-            <Logo className="w-[180px] h-[54px] md:w-[220px] md:h-[66px] transition-transform group-hover:scale-[1.02]" />
+            <Logo className="w-[180px] h-[54px] md:w-[220px] md:h-[66px] brightness-0 opacity-90 transition-transform group-hover:scale-[1.02]" />
             <span className="text-[9px] text-[#3D532D]/60 uppercase tracking-[0.3em] font-bold mt-1">Admin Portal</span>
           </Link>
         </div>

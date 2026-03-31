@@ -14,7 +14,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           <div className="absolute inset-0 bg-sacred-grid opacity-50 pointer-events-none"></div>
           
           <div className="md:hidden flex items-center z-10">
-            <Logo className="w-[140px] h-[42px] relative z-10" />
+            <Logo className="w-[140px] h-[42px] brightness-0 opacity-90 relative z-10" />
           </div>
 
           <div className="flex items-center justify-end gap-6 relative z-10 ml-auto">
