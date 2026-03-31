@@ -12,7 +12,7 @@ export async function updateSetting(key: string, value: string, description?: st
     update: { value, description },
     create: { key, value, description }
   });
-  revalidatePath("/admin/settings");
+  revalidatePath("/", "layout");
 }
 
 export async function updatePageContent(pageKey: string, content: string) {
@@ -23,5 +23,5 @@ export async function updatePageContent(pageKey: string, content: string) {
     update: { content },
     create: { pageKey, content }
   });
-  revalidatePath("/admin/pages");
+  revalidatePath("/", "layout");
 }

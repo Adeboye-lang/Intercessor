@@ -62,9 +62,9 @@ export default function HomeClient() {
           animate="visible"
         >
           <motion.h1 variants={fadeInUp} className="text-5xl sm:text-7xl md:text-[8rem] lg:text-[9.5rem] font-serif text-[#3D532D] leading-[0.9] tracking-tight mb-8 drop-shadow-sm mt-8 sm:mt-0">
-            A platform to <br/>
+            A Hub for <br/>
             <span className="italic font-light text-[#C5A059] relative inline-block pb-4">
-              explore your faith
+              Exploration
             </span>
           </motion.h1>
 
