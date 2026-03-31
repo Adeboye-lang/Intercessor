@@ -150,13 +150,13 @@ export default function Resources({ initialBooks, initialPodcasts, initialEvents
 
   const filteredBooks = initialBooks.filter(book => {
     const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) || (book.author || "").toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesFilter = activeFilter === "All" || book.category === activeFilter;
+    const matchesFilter = activeFilter === "All" || (book.category && book.category.includes(activeFilter));
     return matchesSearch && matchesFilter;
   });
 
   const filteredPodcasts = initialPodcasts.filter(podcast => {
     const matchesSearch = podcast.name.toLowerCase().includes(searchQuery.toLowerCase()) || (podcast.host || "").toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesFilter = activeFilter === "All" || podcast.category === activeFilter;
+    const matchesFilter = activeFilter === "All" || (podcast.category && podcast.category.includes(activeFilter));
     return matchesSearch && matchesFilter;
   });
 
