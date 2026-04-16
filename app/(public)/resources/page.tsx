@@ -10,20 +10,18 @@ export default async function ResourcesPage() {
   let books: Awaited<ReturnType<typeof prisma.book.findMany>> = [];
   let podcasts: Awaited<ReturnType<typeof prisma.podcast.findMany>> = [];
   let music: Awaited<ReturnType<typeof prisma.music.findMany>> = [];
-
-
+  let events: Awaited<ReturnType<typeof prisma.event.findMany>> = [];
   let spotlight: Awaited<ReturnType<typeof prisma.spotlight.findFirst>> = null;
   let booksStatus: ResourceCollectionStatus = "database_not_configured";
   let podcastsStatus: ResourceCollectionStatus = "database_not_configured";
 
   if (hasValidPostgresDatabaseUrl()) {
     try {
-      [books, podcasts, music, spotlight] = await Promise.all([
+      [books, podcasts, music, events, spotlight] = await Promise.all([
         prisma.book.findMany({ orderBy: { createdAt: "desc" } }),
         prisma.podcast.findMany({ orderBy: { createdAt: "desc" } }),
         prisma.music.findMany({ orderBy: { createdAt: "desc" } }),
-
-
+        prisma.event.findMany({ orderBy: { createdAt: "desc" }, where: { isPublished: true } }),
         prisma.spotlight.findFirst({ orderBy: { createdAt: "desc" }, where: { isPublished: true } })
       ]);
 
@@ -62,8 +60,7 @@ export default async function ResourcesPage() {
     pageContents={pageContents} 
     initialPodcasts={podcasts} 
     initialMusic={music}
-
-
+    initialEvents={events}
     booksStatus={booksStatus}
     podcastsStatus={podcastsStatus}
     disclaimer={disclaimer}

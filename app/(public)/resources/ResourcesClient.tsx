@@ -144,7 +144,7 @@ function getCollectionMessage(
   };
 }
 
-export default function Resources({ initialBooks, initialPodcasts, initialMusic, booksStatus, podcastsStatus, disclaimer, spotlight, pageContents }: { initialBooks: Book[], initialPodcasts: Podcast[], initialMusic: Music[], booksStatus: ResourceCollectionStatus, podcastsStatus: ResourceCollectionStatus, disclaimer?: string | null, spotlight?: Spotlight | null, pageContents?: Record<string, string> }) {
+export default function Resources({ initialBooks, initialPodcasts, initialMusic, initialEvents, booksStatus, podcastsStatus, disclaimer, spotlight, pageContents }: { initialBooks: Book[], initialPodcasts: Podcast[], initialMusic: Music[], initialEvents: Event[], booksStatus: ResourceCollectionStatus, podcastsStatus: ResourceCollectionStatus, disclaimer?: string | null, spotlight?: Spotlight | null, pageContents?: Record<string, string> }) {
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -403,6 +403,60 @@ export default function Resources({ initialBooks, initialPodcasts, initialMusic,
                 )}
               </AnimatePresence>
             </section>
+
+            {/* Events Section */}
+            {initialEvents && initialEvents.length > 0 && (
+              <section>
+                <div className="flex flex-col mb-16 border-b border-[#3D532D]/10 pb-6 relative mt-32">
+                   <div className="w-12 h-[2px] bg-[#C5A059] mb-6"></div>
+                   <div className="flex items-center gap-4 text-[#C5A059]">
+                      <Calendar size={28} strokeWidth={1} />
+                      <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#3D532D] tracking-tight">Study Gatherings</h2>
+                   </div>
+                </div>
+                
+                <div className="space-y-6">
+                  {initialEvents.map((event) => (
+                    <div 
+                      key={event.id}
+                      className="group bg-white/80 backdrop-blur-sm p-6 md:p-8 border border-[#3D532D]/10 hover:border-[#C5A059]/40 hover:shadow-[0_15px_30px_-10px_rgba(40,46,34,0.1)] transition-all duration-500 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden"
+                    >
+                      <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#C5A059] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+                      
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-3">
+                          <span className="bg-[#C5A059]/10 text-[#C5A059] px-3 py-1 text-xs font-bold uppercase tracking-widest border border-[#C5A059]/20">
+                            {new Date(event.eventDate).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                            {event.time && ` • ${event.time}`}
+                          </span>
+                        </div>
+                        <h3 className="text-2xl font-serif text-[#3D532D] mb-3 group-hover:text-[#C5A059] transition-colors">{event.title}</h3>
+                        <p className="text-[#3D532D]/70 font-light leading-relaxed text-sm mb-4">
+                          {event.description}
+                        </p>
+                        {event.location && (
+                           <p className="text-[#3D532D]/50 text-xs uppercase tracking-widest font-bold">
+                             📍 {event.location}
+                           </p>
+                        )}
+                      </div>
+                      
+                      {event.registrationLink && (
+                        <a 
+                          href={event.registrationLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 flex items-center gap-2 border border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-6 py-3 transition-colors text-xs font-bold uppercase tracking-widest"
+                        >
+                          RSVP
+                          <ArrowRight size={14} />
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Music Section */}
             <section>

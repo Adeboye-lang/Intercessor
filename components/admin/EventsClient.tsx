@@ -8,7 +8,6 @@ import { Event } from "@prisma/client";
 
 export default function EventsClient({ initialEvents }: { initialEvents: Event[] }) {
   const router = useRouter();
-  const [events, setEvents] = useState<Event[]>(initialEvents);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
   const [loading, setLoading] = useState(false);
@@ -47,7 +46,7 @@ export default function EventsClient({ initialEvents }: { initialEvents: Event[]
   const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this event?")) {
       await deleteEvent(id);
-      setEvents(events.filter((e) => e.id !== id));
+      router.refresh();
     }
   };
 
@@ -66,7 +65,7 @@ export default function EventsClient({ initialEvents }: { initialEvents: Event[]
         </button>
       </div>
 
-      <div className="bg-white border border-border-subtle rounded-2xl shadow-sm overflow-hidden">
+      <div className="bg-white border border-border-subtle rounded-2xl shadow-sm overflow-x-auto">
         <table className="w-full text-left text-sm whitespace-nowrap">
           <thead className="tracking-widest uppercase text-[10px] bg-[#F8F9F7] text-text-muted">
             <tr>
@@ -77,7 +76,7 @@ export default function EventsClient({ initialEvents }: { initialEvents: Event[]
             </tr>
           </thead>
           <tbody className="divide-y divide-border-subtle">
-            {events.map((event) => (
+            {initialEvents.map((event) => (
               <tr key={event.id} className="hover:bg-brand/5 transition-colors group">
                 <td className="px-6 py-4">
                   <p className="font-serif text-brand-dark text-base">{event.title}</p>
@@ -118,7 +117,7 @@ export default function EventsClient({ initialEvents }: { initialEvents: Event[]
                 </td>
               </tr>
             ))}
-            {events.length === 0 && (
+            {initialEvents.length === 0 && (
               <tr>
                 <td colSpan={4} className="px-6 py-8 text-center text-text-muted">
                   No events found. Click &quot;Add Event&quot; to get started.
